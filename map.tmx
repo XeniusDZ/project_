@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="9">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="41">
  <tileset firstgid="1" source="nature.tsx"/>
  <layer id="1" name="background" width="50" height="50">
   <data encoding="csv">
@@ -55,10 +55,28 @@
 41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,41
 </data>
  </layer>
- <objectgroup id="6" name="object">
+ <objectgroup id="6" name="objects">
   <object id="7" name="spawn" x="236" y="112.333">
    <point/>
   </object>
+  <object id="9" name="collision" x="0.5" y="-15.25" width="814.25" height="30.5"/>
+  <object id="20" name="collision" x="0" y="15.6364" width="31.8182" height="784.182"/>
+  <object id="23" name="collision" x="31.8182" y="768" width="784.364" height="31.8182"/>
+  <object id="24" name="collision" x="784.364" y="15.8182" width="31.4545" height="751.273"/>
+  <object id="25" name="collision" x="32.1818" y="384.182" width="79.2727" height="79.6364"/>
+  <object id="27" name="collision" x="80.1818" y="367.818" width="31.6364" height="16.3636"/>
+  <object id="29" name="collision" x="112.364" y="352.182" width="31.4545" height="95.8182"/>
+  <object id="30" name="collision" x="144.545" y="336" width="31.2727" height="95.8182"/>
+  <object id="31" name="collision" x="176.182" y="336" width="175.636" height="63.8182"/>
+  <object id="32" name="collision" x="351.636" y="351.636" width="32.1818" height="48.3636"/>
+  <object id="33" name="collision" x="384.182" y="384" width="15.8182" height="15.8182"/>
+  <object id="34" name="collision" x="511.818" y="304" width="31.6364" height="96"/>
+  <object id="35" name="collision" x="496" y="303.636" width="15.4545" height="64.1818"/>
+  <object id="36" name="collision" x="480.182" y="336" width="15.4545" height="15.8182"/>
+  <object id="37" name="collision" x="544.182" y="288" width="16" height="111.455"/>
+  <object id="38" name="collision" x="560.364" y="288.182" width="47.2727" height="79.6364"/>
+  <object id="39" name="collision" x="608.182" y="287.818" width="175.455" height="64"/>
+  <object id="40" x="-13" y="445"/>
  </objectgroup>
  <layer id="4" name="water" width="50" height="50">
   <data encoding="csv">
