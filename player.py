@@ -24,10 +24,12 @@ class Player(pygame.sprite.Sprite):
         self.count = 0
 
 
-        self.feet = pygame.Rect(0,0, self.rect.width*0.5, 12)
+        self.feet = pygame.Rect(0,0, self.rect.width*0.5, 16) #take only the half of the body of the player
+
+        self.past_position = self.position.copy() #Old position of the player
+
+    def save_location(self):
         self.past_position = self.position.copy()
-
-
 
         
     #change animation
@@ -63,10 +65,16 @@ class Player(pygame.sprite.Sprite):
         self.position[1] -= 2
     
 
-
     def update(self):
         self.rect.topleft = self.position
         self.feet.midbottom = self.rect.midbottom
+
+    def move_back(self):
+        self.position = self.past_position
+        self.rect.topleft = self.position
+        self.feet.midbottom = self.rect.midbottom
+
+    
     def get_image(self,x,y):
         image = pygame.Surface([32,32])
         image.blit(self.sprite_sheet, (0,0), (x,y,32,32))
