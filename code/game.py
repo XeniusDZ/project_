@@ -18,7 +18,7 @@ class Start:
 
 
         #create player
-        self.player = Player(0,0)
+        self.player = Player()
         self.map_manager = MapManager(self.screen,self.player)
 
         #collisions

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="68">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="72">
  <tileset firstgid="1" source="nature.tsx"/>
  <tileset firstgid="181" source="house.tsx"/>
  <layer id="1" name="background" width="50" height="50">
@@ -272,13 +272,19 @@
   <object id="59" type="collision" x="688" y="448" width="80" height="16"/>
   <object id="60" type="collision" x="640" y="383" width="16" height="48"/>
   <object id="61" type="collision" x="656" y="384" width="112" height="16"/>
-  <object id="62" x="-0.5" y="0" width="800.5" height="32"/>
-  <object id="63" x="-0.5" y="32" width="32.5" height="767.5"/>
-  <object id="64" x="32" y="768" width="768" height="32"/>
-  <object id="65" x="768" y="31.6667" width="32.6667" height="736.333"/>
+  <object id="62" type="collision" x="-0.5" y="0" width="800.5" height="40"/>
+  <object id="63" type="collision" x="-0.5" y="32" width="32.5" height="767.5"/>
+  <object id="64" type="collision" x="33" y="780" width="768" height="19.3333"/>
+  <object id="65" type="collision" x="768" y="31.6667" width="32.6667" height="736.333"/>
   <object id="66" name="from_map" x="721.25" y="640">
    <point/>
   </object>
   <object id="67" name="to_map" x="754" y="606.5" width="14" height="65.5"/>
+  <object id="68" x="860" y="1442.67" width="25.3333" height="9.33333"/>
+  <object id="69" x="472" y="784.667" width="0.666667"/>
+  <object id="70" name="to_smallhouse7" x="394.25" y="161" width="15" height="6.25"/>
+  <object id="71" name="from_small_house7" x="401.364" y="177.159">
+   <point/>
+  </object>
  </objectgroup>
 </map>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="81">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="87">
  <tileset firstgid="1" source="nature.tsx"/>
  <tileset firstgid="181" source="house.tsx"/>
  <layer id="1" name="background" width="50" height="50">
@@ -241,6 +241,18 @@
   <object id="77" type="collision" x="340.75" y="568.5" width="21.75" height="20.5"/>
   <object id="78" name="to_map1" x="448.333" y="31.3333" width="79" height="17"/>
   <object id="79" name="from_map1" x="486.667" y="89.6667">
+   <point/>
+  </object>
+  <object id="81" name="to_smallhouse4" x="330.25" y="255.75" width="15.25" height="5.75"/>
+  <object id="82" name="from_smallhouse4" x="336.75" y="268.5">
+   <point/>
+  </object>
+  <object id="83" name="to_smallhouse5" x="570.25" y="432" width="15" height="7.1875"/>
+  <object id="84" name="from_smallhouse5" x="577.625" y="446.114">
+   <point/>
+  </object>
+  <object id="85" name="to_smallhouse6" x="169.5" y="434.25" width="14.75" height="5.25"/>
+  <object id="86" name="from_smallhouse6" x="176.5" y="448" rotation="90">
    <point/>
   </object>
  </objectgroup>

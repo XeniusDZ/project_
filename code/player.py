@@ -1,10 +1,10 @@
 from typing import Counter
 import pygame
 
-class Player(pygame.sprite.Sprite):
-    def __init__(self,x,y):
+class Entity(pygame.sprite.Sprite):
+    def __init__(self,name,x,y):
         super().__init__()
-        self.sprite_sheet = pygame.image.load('../sprite/pnj.png')
+        self.sprite_sheet = pygame.image.load(f'../sprite/{name}.png')
         self.image = self.get_image(0,0)
         self.image.set_colorkey([0, 0, 0])
         self.rect = self.image.get_rect()
@@ -79,3 +79,27 @@ class Player(pygame.sprite.Sprite):
         image = pygame.Surface([32,32])
         image.blit(self.sprite_sheet, (0,0), (x,y,32,32))
         return image
+
+class Player(Entity):
+    def __init__(self):
+        super().__init__("pnj",0,0)
+
+class PNJ(Entity):
+    def __init__(self, name, nb_points):
+        super().__init__(name, 0,0)
+        self.nb_points = nb_points
+        self.name = name
+        self.points = []
+        self.current_point = 0
+
+    def teleport(self):
+        location = self.points[self.current_point]
+        self.position[0] = location.x
+        self.position[1] = location.y
+        self.save_location()
+        print(self.position[0], self.position[1])
+
+    def load_points(self,tmx):
+        point = tmx.get_object_by_name(self.name)
+        rect = pygame.Rect(point.x,point.y,point.width,point.height)
+        self.points.append(rect)

@@ -81,7 +81,7 @@
   <object id="19" type="collision" x="303.75" y="107.25" width="28.75" height="30.5"/>
   <object id="20" x="350.5" y="108.5" width="29" height="29"/>
   <object id="21" type="collision" x="350.5" y="108.5" width="29" height="29"/>
-  <object id="23" name="from_map1" x="197.454" y="348.546">
+  <object id="23" name="from_map1" x="198.636" y="343.864">
    <point/>
   </object>
   <object id="24" name="to_map1" x="175.636" y="382.727" width="48.1818" height="17.0909"/>
