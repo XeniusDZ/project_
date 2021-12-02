@@ -124,10 +124,9 @@
   <object id="7" type="collision" x="222.5" y="150.25" width="125.25" height="20"/>
   <object id="8" type="collision" x="222" y="199.25" width="127.75" height="19"/>
   <object id="9" type="collision" x="222.5" y="245.75" width="126.5" height="19.75"/>
-  <object id="10" x="247.5" y="210.75"/>
   <object id="11" type="collision" x="30.75" y="150" width="125.25" height="19.25"/>
-  <object id="17" name="exit_bib" x="160" y="383.75" width="48" height="16.25"/>
-  <object id="18" name="spawn_to_bib" x="184.25" y="371.417">
+  <object id="17" name="exit_bib" x="160" y="384" width="48" height="16.25"/>
+  <object id="18" name="spawn_to_bib" x="179.25" y="330.417">
    <point/>
   </object>
   <object id="19" type="collision" x="-0.5" y="94" width="16.5" height="306.5"/>
