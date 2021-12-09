@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 import pygame, pytmx, pyscroll
 from player import *
+from dialogs import *
 
 class Portal:
     def __init__(self,from_world,origin_point,to_world,teleport_point):
@@ -33,8 +34,7 @@ class MapManager:
         Portal(from_world="map", origin_point="to_map3", to_world="map3", teleport_point="from_map1"),
         Portal(from_world="map", origin_point="to_small_house2", to_world="small_house2", teleport_point="from_map1"),
         Portal(from_world="map",origin_point = "to_small_house", to_world = "small_house",teleport_point= "from_map1")], pnj=[
-        PNJ("paul", nb_points=1)
-        ])
+        PNJ("paul", nb_points=1,dialog=["lol"],correct_answer=pygame.K_1)])
         self.register_map("small_house2", portals=[
             Portal(from_world="small_house2", origin_point="to_map1", to_world="map", teleport_point="from_small_house2")
         ])
@@ -46,23 +46,23 @@ class MapManager:
                                             Portal(from_world="map3", origin_point="to_smallhouse6", to_world="small_house6", teleport_point="from_map1")])
         self.register_map("map4",portals=[
             Portal(from_world="map4", origin_point="to_map1", to_world="map", teleport_point="from_map4"),
-            Portal(from_world="map4", origin_point="to_house3", to_world="small_house3", teleport_point="from_map1")]
-    )
+            Portal(from_world="map4", origin_point="to_house3", to_world="small_house3", teleport_point="from_map1")], pnj=[PNJ("robin", nb_points=1, dialog=["Wesh la street","Tranquille ?"],correct_answer=pygame.K_1)])
         self.register_map("small_house3", portals=[
             Portal(from_world="small_house3", origin_point="to_map1", to_world="map4", teleport_point="from_house3")])
         self.register_map("small_house4", portals=[
             Portal(from_world="small_house4", origin_point="to_map1", to_world="map3", teleport_point="from_smallhouse4")])
         self.register_map("small_house5", portals=[
-            Portal(from_world="small_house5", origin_point="to_map1", to_world="map3", teleport_point="from_smallhouse5")])
+            Portal(from_world="small_house5", origin_point="to_map1", to_world="map3", teleport_point="from_smallhouse5")], pnj=[
+        PNJ("boss", nb_points=1, dialog=["Wesh la street","Tranquille ?"],correct_answer=pygame.K_1)])
         self.register_map("small_house7", portals=[
             Portal(from_world="small_house7", origin_point="to_map1", to_world="map2", teleport_point="from_small_house7")])
         self.register_map("small_house6", portals=[
             Portal(from_world="small_house6", origin_point="to_map1", to_world="map3", teleport_point="from_smallhouse6")])
         self.register_map("map5", portals=[
-            Portal(from_world="map5", origin_point="to_map1", to_world="map", teleport_point="from_map5")], pnj= [PNJ("boss",nb_points=1)])
+            Portal(from_world="map5", origin_point="to_map1", to_world="map", teleport_point="from_map5")], pnj= [PNJ("boss",nb_points=1, dialog=["Wesh la street","Tranquille ?"],correct_answer=pygame.K_1)])
 
         self.register_map("small_house",portals= [Portal(from_world="small_house",origin_point = "to_map1", to_world = "map",teleport_point= "from_small_house")])
-        self.register_map("house",portals=[Portal(from_world="house",origin_point = "exit_bib", to_world = "map",teleport_point= "spawn_from_bib")],pnj = [PNJ("paul", nb_points=1)])
+        self.register_map("house",portals=[Portal(from_world="house",origin_point = "exit_bib", to_world = "map",teleport_point= "spawn_from_bib")],pnj = [PNJ("paul", nb_points=1, dialog=["Wesh la street","Tranquille ?"], correct_answer=pygame.K_1)])
 
 
         self.teleport_player("spawn")
@@ -73,6 +73,14 @@ class MapManager:
         self.player.position[0] = point.x
         self.player.position[1] = point.y
         self.player.save_location()
+
+    def check_pnj(self, dialog):
+        for sprite in self.get_group().sprites():
+            print(type(sprite))
+            if sprite.feet.colliderect(self.player.rect) and type(sprite) is PNJ:
+                dialog.execute(sprite.dialog)
+
+
 
     def check_collisions(self):
         for portal in self.get_map().portals:
@@ -92,7 +100,7 @@ class MapManager:
         tmx = pytmx.util_pygame.load_pygame(f'../maps/{name}.tmx')
         map = pyscroll.data.TiledMapData(tmx)
         map_layer = pyscroll.orthographic.BufferedRenderer(map, self.screen.get_size())
-        map_layer.zoom = 2
+        map_layer.zoom = 3
 
         # collisions
         walls = []

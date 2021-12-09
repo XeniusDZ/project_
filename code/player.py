@@ -4,9 +4,9 @@ import pygame
 class Entity(pygame.sprite.Sprite):
     def __init__(self,name,x,y):
         super().__init__()
-        self.sprite_sheet = pygame.image.load(f'../sprite/{name}.png')
+        self.sprite_sheet = pygame.image.load(f'../sprite/{name}.png') #load sprisheet's image
         self.image = self.get_image(0,0)
-        self.image.set_colorkey([0, 0, 0])
+        self.image.set_colorkey([0, 0, 0]) #make the background transparent
         self.rect = self.image.get_rect()
         self.x = x
         self.y = y
@@ -14,7 +14,7 @@ class Entity(pygame.sprite.Sprite):
         self.animations = [[self.get_image(0,0),self.get_image(32,0),self.get_image(64,0),self.get_image(96,0)],
         [self.get_image(0,32),self.get_image(32,32),self.get_image(64,32),self.get_image(96,32)],
         [self.get_image(0,64),self.get_image(32,64),self.get_image(64,64),self.get_image(96,64)],
-        [self.get_image(0,96),self.get_image(32,96),self.get_image(64,96),self.get_image(96,96)]]
+        [self.get_image(0,96),self.get_image(32,96),self.get_image(64,96),self.get_image(96,96)]] #get all the the rectangles of sprisheets
         self.directions = {
             "up" : 3,
             "left" : 1,
@@ -85,8 +85,10 @@ class Player(Entity):
         super().__init__("pnj",0,0)
 
 class PNJ(Entity):
-    def __init__(self, name, nb_points):
+    def __init__(self, name, nb_points, dialog, correct_answer):
         super().__init__(name, 0,0)
+        self.correct_answer = correct_answer
+        self.dialog = dialog
         self.nb_points = nb_points
         self.name = name
         self.points = []

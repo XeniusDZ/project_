@@ -4,6 +4,7 @@ import pyscroll
 import pytmx
 from map import MapManager
 from player import Player
+from dialogs import Dialog
 
 class Start:
     def __init__(self):
@@ -20,13 +21,14 @@ class Start:
         #create player
         self.player = Player()
         self.map_manager = MapManager(self.screen,self.player)
+        self.dialog = Dialog()
 
-        #collisions
+        #make a list of all collisions
         self.walls = []
         
 
 
-    def clavish(self):
+    def clavish(self): #Change of animation depending of pressed key
         pressed = pygame.key.get_pressed()
         if (pressed[pygame.K_z] or pressed[pygame.K_UP]) and (pressed[pygame.K_d] or pressed[pygame.K_RIGHT]):
             self.player.orizental_right_up()
@@ -86,16 +88,22 @@ class Start:
     def run(self):
         #fps
         clock = pygame.time.Clock()
-        while self.running:
-            self.player.save_location()
+        while self.running: #run loop
+            self.player.save_location() #save location of the player
             self.clavish()
 
-            self.update()
+            self.update() #update the changes
             self.map_manager.draw()
+            self.dialog.show(self.screen)
             pygame.display.flip()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
                     pygame.quit()
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        self.map_manager.check_pnj(self.dialog)
+
+
             #modify to 60fps
             clock.tick(60)
