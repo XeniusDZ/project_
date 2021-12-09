@@ -1,5 +1,5 @@
 import pygame
-
+from music import sound
 
 class Dialog:
 
@@ -23,6 +23,7 @@ class Dialog:
             self.show_dialog = True
             self.index = 0
             self.texts = dialog
+
 
     def show(self,screen):
         if self.show_dialog:

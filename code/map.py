@@ -2,6 +2,7 @@ from dataclasses import dataclass
 import pygame, pytmx, pyscroll
 from player import *
 from dialogs import *
+from music import sound
 
 class Portal:
     def __init__(self,from_world,origin_point,to_world,teleport_point):
@@ -79,7 +80,7 @@ class MapManager:
             print(type(sprite))
             if sprite.feet.colliderect(self.player.rect) and type(sprite) is PNJ:
                 dialog.execute(sprite.dialog)
-
+                sound("../music/interraction.mp3")
 
 
     def check_collisions(self):
